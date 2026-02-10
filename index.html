@@ -1,48 +1,4 @@
-[9:03 p.m., 9/2/2026] Jorge Montoya: <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAXPRO Motos - Tienda Online</title>
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: Arial, sans-serif; background:#f4f4f4; }
-
-/* Banner */
-.banner {
-  position:relative; width:100%; height:250px;
-  background:url('banner.jpg') center/cover no-repeat;
-  display:flex; align-items:center; justify-content:center;
-  color:#fff; font-size:36px; font-weight:bold; text-shadow:2px 2px 8px #000;
-}
-.banner::after { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.3); }
-.banner h1 { position:relative; z-index:1; }
-
-/* Títulos */
-h2 { text-align:center; marg…
-[9:11 p.m., 9/2/2026] Jorge Montoya: <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAXPRO Motos - Tienda Online</title>
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: Arial, sans-serif; background:#f4f4f4; }
-
-/* Banner */
-.banner {
-  position:relative; width:100%; height:250px;
-  background:url('banner.jpg') center/cover no-repeat;
-  display:flex; align-items:center; justify-content:center;
-  color:#fff; font-size:36px; font-weight:bold; text-shadow:2px 2px 8px #000;
-}
-.banner::after { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.3); }
-.banner h1 { position:relative; z-index:1; }
-
-/* Títulos */
-h2 { text-align:center; marg…
-[9:32 p.m., 9/2/2026] Jorge Montoya: <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -56,12 +12,10 @@ body { font-family: Arial, sans-serif; background:#f4f4f4; }
 /* Banner */
 .banner {
   position:relative; width:100%; height:250px;
-  background:url('banner.jpg') center/cover no-repeat;
+  background:#007bff; /* Puedes reemplazar por banner si tienes */
   display:flex; align-items:center; justify-content:center;
   color:#fff; font-size:36px; font-weight:bold; text-shadow:2px 2px 8px #000;
 }
-.banner::after { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.3); }
-.banner h1 { position:relative; z-index:1; }
 
 /* Títulos */
 h2 { text-align:center; margin:30px 0; color:#007bff; }
@@ -82,9 +36,6 @@ h2 { text-align:center; margin:30px 0; color:#007bff; }
 .slider-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.4); color:#fff; border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; font-size:24px; z-index:2; transition:background 0.3s; }
 .slider-btn:hover { background:rgba(0,0,0,0.7); }
 #prev { left:5px; } #next { right:5px; }
-
-/* Secciones */
-.seccion { padding:20px; display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
 
 /* Carrito */
 #carrito { position:fixed; bottom:20px; right:20px; width:300px; max-height:400px; background:#fff; border-radius:10px; padding:15px; box-shadow:0 5px 15px rgba(0,0,0,0.3); overflow:auto; z-index:1000; }
@@ -119,12 +70,6 @@ footer p { margin:5px 0; }
   <button class="slider-btn" id="next">&#10095;</button>
 </div>
 
-<h2>Nuevos Productos</h2>
-<div class="seccion" id="nuevosProductos"></div>
-
-<h2>Ofertas</h2>
-<div class="seccion" id="ofertasProductos"></div>
-
 <!-- Carrito -->
 <div id="carrito">
   <h3>Carrito</h3>
@@ -136,24 +81,25 @@ footer p { margin:5px 0; }
 <!-- WhatsApp flotante -->
 <a href="https://wa.me/573001234567" target="_blank" class="whatsapp-float">&#128241;</a>
 
-<!-- PayPal SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=YOUR_SANDBOX_CLIENT_ID&currency=COP"></script>
-
 <script>
-// Productos
+// Productos Destacados usando tus nombres
 const productosDestacados = [
-  {nombre:"Moto X", precio:5000000, imagen:"moto.jpg"},
-  {nombre:"Casco Pro", precio:200000, imagen:"casco.jpg"}
-];
-const nuevosProductos = [
-  {nombre:"Guantes Racing", precio:50000, imagen:"guantes.jpg"},
-  {nombre:"Botas Racing", precio:150000, imagen:"botas.jpg"}
-];
-const ofertasProductos = [
-  {nombre:"Chaqueta Motera", precio:300000, imagen:"chaqueta.jpg"}
+  {nombre:"Amortiguador 1", precio:500000, imagen:"amortiguadores1.jpg"},
+  {nombre:"Amortiguador 2", precio:500000, imagen:"amortiguadores2.jpg"},
+  {nombre:"Amortiguador 3", precio:500000, imagen:"amortiguadores3.jpg"},
+  {nombre:"Amortiguador 4", precio:500000, imagen:"amortiguadores4.jpg"},
+  {nombre:"Arbol de Leva 1", precio:700000, imagen:"arnoldeleva1.jpg"},
+  {nombre:"Arbol de Leva 2", precio:700000, imagen:"arboldeleva2.jpg"},
+  {nombre:"Bandas 1", precio:150000, imagen:"bandas1.jpg"},
+  {nombre:"Pastillas 1", precio:80000, imagen:"pastillas1.jpg"},
+  {nombre:"Pastillas 2", precio:80000, imagen:"pastillas2.jpg"},
+  {nombre:"Pastillas 3", precio:80000, imagen:"pastillas3.jpg"},
+  {nombre:"Pastillas 4", precio:80000, imagen:"pastillas4.jpg"},
+  {nombre:"Imagen 1", precio:120000, imagen:"imagen1.jpg"}
 ];
 
-// Render slider y secciones
+// Render slider
 const contenedorDestacados=document.getElementById("productosDestacados");
 productosDestacados.forEach((p,i)=>{
   contenedorDestacados.innerHTML+=`
@@ -162,33 +108,11 @@ productosDestacados.forEach((p,i)=>{
       <h3>${p.nombre}</h3>
       <p>$${p.precio.toLocaleString()}</p>
       <button onclick="agregarCarritoDest(${i})">Agregar al carrito</button>
-      <button onclick="comprarWhatsApp('${p.nombre}',$${p.precio})">WhatsApp</button>
-    </div>`;
-});
-const seccionNuevos=document.getElementById("nuevosProductos");
-nuevosProductos.forEach((p,i)=>{
-  seccionNuevos.innerHTML+=`
-    <div class="producto">
-      <img src="${p.imagen}" alt="${p.nombre}">
-      <h3>${p.nombre}</h3>
-      <p>$${p.precio.toLocaleString()}</p>
-      <button onclick="agregarCarritoNuevos(${i})">Agregar al carrito</button>
-      <button onclick="comprarWhatsApp('${p.nombre}',$${p.precio})">WhatsApp</button>
-    </div>`;
-});
-const seccionOfertas=document.getElementById("ofertasProductos");
-ofertasProductos.forEach((p,i)=>{
-  seccionOfertas.innerHTML+=`
-    <div class="producto">
-      <img src="${p.imagen}" alt="${p.nombre}">
-      <h3>${p.nombre}</h3>
-      <p>$${p.precio.toLocaleString()}</p>
-      <button onclick="agregarCarritoOfertas(${i})">Agregar al carrito</button>
-      <button onclick="comprarWhatsApp('${p.nombre}',$${p.precio})">WhatsApp</button>
+      <button onclick="comprarWhatsApp('${p.nombre}',${p.precio})">WhatsApp</button>
     </div>`;
 });
 
-// Carrito persistente
+// Carrito
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 const listaCarrito=document.getElementById("listaCarrito");
 const totalCarrito=document.getElementById("totalCarrito");
@@ -210,8 +134,6 @@ function renderCarrito(){
 }
 
 function agregarCarritoDest(idx){ agregarCarritoProducto(productosDestacados[idx]); }
-function agregarCarritoNuevos(idx){ agregarCarritoProducto(nuevosProductos[idx]); }
-function agregarCarritoOfertas(idx){ agregarCarritoProducto(ofertasProductos[idx]); }
 
 function agregarCarritoProducto(prod){
   const encontrado=carrito.find(p=>p.nombre===prod.nombre);
@@ -239,7 +161,7 @@ nextBtn.addEventListener("click", ()=>{ slider.scrollBy({left:step,behavior:'smo
 prevBtn.addEventListener("click", ()=>{ slider.scrollBy({left:-step,behavior:'smooth'}); });
 setInterval(()=>{ if(slider.scrollLeft+slider.clientWidth>=slider.scrollWidth) slider.scrollTo({left:0,behavior:'smooth'}); else slider.scrollBy({left:step,behavior:'smooth'}); },4000);
 
-// PayPal Buttons en COP
+// PayPal Buttons
 paypal.Buttons({
   createOrder: function(data, actions){
     const totalCOP = carrito.reduce((sum,p)=>sum+p.precio*p.cantidad,0);
@@ -264,6 +186,7 @@ renderCarrito();
 
 </body>
 </html>
+
 
 
 
