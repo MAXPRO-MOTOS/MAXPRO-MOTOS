@@ -2,249 +2,187 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>MAXPRO MOTOS</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAXPRO Motos - Tienda Online</title>
 <style>
-/* --- MENÚ FIJO --- */
-.menu{
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.9);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 25px;
-  z-index: 2000;
-}
-.menu .logo{
-  color: #ff0000;
-  font-weight: bold;
-  font-size: 20px;
-}
-.menu .links a{
-  color: #ffd700;
-  margin-left: 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
-.menu .links a:hover{
-  color: #ff0000;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; background:#f4f4f4; }
 
-/* --- HERO METÁLICO --- */
-.hero {
-  height: 90vh;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
-              url("imagen1.jpg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+/* Banner */
+.banner {
+  position:relative; width:100%; height:250px;
+  background:url('banner.jpg') center/cover no-repeat;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:36px; font-weight:bold; text-shadow:2px 2px 8px #000;
 }
-.hero h1 {
-  font-size: 48px;
-  margin: 0 0 10px;
-  background: linear-gradient(135deg, #ff0000, #ffd700, #ff0000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-}
-.hero p {
-  color: #ffd700;
-  font-size: 20px;
-  margin: 0 0 20px;
-}
-.btn-whatsapp {
-  display: inline-block;
-  background: linear-gradient(135deg,#ff0000,#ffd700,#ff0000);
-  color: #000;
-  padding: 12px 25px;
-  border-radius: 25px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.btn-whatsapp:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
-}
+.banner::after { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.3); }
+.banner h1 { position:relative; z-index:1; }
 
-/* --- PRODUCTOS METÁLICOS --- */
-.productos{
-  padding: 120px 20px 40px 20px;
-  text-align:center;
-}
-.productos h2{
-  background: linear-gradient(135deg, #ff0000, #ffd700, #ff0000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 36px;
-  margin-bottom: 30px;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-  max-width:1100px;
-  margin:auto;
-}
-.card{
-  background: linear-gradient(145deg,#111,#222);
-  border-radius:15px;
-  padding:15px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-}
-.card:hover{
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.8);
-}
-.card img{
-  width:100%;
-  border-radius:12px;
-}
-.precio{
-  color:#ffd700;
-  font-size:20px;
-  font-weight:bold;
-}
-.btn-producto{
-  display:block;
-  margin-top:10px;
-  background: linear-gradient(135deg,#ff0000,#ffd700,#ff0000);
-  color:#000;
-  padding:10px;
-  border-radius:25px;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.btn-producto:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
-}
+/* Títulos */
+h2 { text-align:center; margin:30px 0; color:#007bff; }
 
-/* --- CONTACTO --- */
-#contacto{
-  padding:40px 20px;
-  text-align:center;
-}
+/* Slider */
+.slider-container { position:relative; width:100%; overflow:hidden; padding:0 40px 30px 40px; }
+#productosDestacados { display:flex; gap:20px; transition:transform 0.5s ease-in-out; }
+.producto { min-width:220px; background:#fff; padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.2); text-align:center; transition:transform 0.3s, box-shadow 0.3s; flex-shrink:0; }
+.producto:hover { transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.3); }
+.producto img { width:100%; border-radius:8px; transition:transform 0.3s; }
+.producto img:hover { transform:scale(1.05); }
+.producto h3 { margin:10px 0 5px; font-size:18px; color:#007bff; }
+.producto p { margin:0 0 10px; font-weight:bold; color:#555; }
+.producto button { padding:8px 15px; background:#007bff; color:#fff; border:none; border-radius:5px; cursor:pointer; transition:background 0.3s; }
+.producto button:hover { background:#0056b3; }
 
-/* --- BOTÓN WHATSAPP FLOTANTE --- */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: #fff;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:30px;
-  text-decoration:none;
-  box-shadow:0 0 15px rgba(37,211,102,0.8);
-  z-index:1000;
-}
+/* Slider buttons */
+.slider-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.4); color:#fff; border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; font-size:24px; z-index:2; transition:background 0.3s; }
+.slider-btn:hover { background:rgba(0,0,0,0.7); }
+#prev { left:5px; } #next { right:5px; }
 
-/* --- ANIMACIONES SUAVES --- */
-section{
-  animation: fadeIn 1.2s ease;
-}
-@keyframes fadeIn{
-  from{ opacity:0; transform: translateY(30px); }
-  to{ opacity:1; transform: translateY(0); }
-}
+/* Carrito */
+#carrito { position:fixed; top:20px; right:20px; width:300px; max-height:400px; background:#fff; border-radius:10px; padding:15px; box-shadow:0 5px 15px rgba(0,0,0,0.3); overflow:auto; z-index:1000; }
+#carrito h3 { margin-bottom:10px; color:#007bff; }
+#carrito ul { list-style:none; max-height:250px; overflow:auto; margin-bottom:10px; }
+#carrito ul li { display:flex; justify-content:space-between; align-items:center; margin-bottom:5px; gap:5px; }
+#carrito ul li input { width:40px; text-align:center; }
+#carrito button { padding:5px 10px; background:#007bff; color:#fff; border:none; border-radius:5px; cursor:pointer; transition:background 0.3s; }
+#carrito button:hover { background:#0056b3; }
+
+/* WhatsApp flotante */
+.whatsapp-float { position:fixed; bottom:20px; right:20px; background:#25d366; color:#fff; border-radius:50%; width:60px; height:60px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.3); cursor:pointer; font-size:30px; z-index:1000; text-decoration:none; transition:transform 0.3s; }
+.whatsapp-float:hover { transform:scale(1.1); }
+
+/* Responsive */
+@media(max-width:768px){ .slider-container{padding:0 10px;} .producto{min-width:180px;} #carrito{width:90%; top:auto; bottom:90px; right:5%;} }
 </style>
 </head>
-
 <body>
 
-<!-- MENÚ FIJO -->
-<nav class="menu">
-  <div class="logo">MAXPRO MOTOS</div>
-  <div class="links">
-    <a href="#productos">Productos</a>
-    <a href="#contacto">Contacto</a>
-  </div>
-</nav>
+<div class="banner"><h1>MAXPRO MOTOS</h1></div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>MAXPRO MOTOS</h1>
-    <p>Repuestos y accesorios para motos</p>
-    <a href="https://wa.me/573196416617" class="btn-whatsapp">Comprar por WhatsApp</a>
-  </div>
-</section>
+<h2>Productos Destacados</h2>
 
-<!-- SECCIÓN PRODUCTOS (desde CSV) -->
-<section id="productos" class="productos">
-  <h2>Productos Destacados</h2>
-  <div class="grid" id="productos-grid">
-    <!-- Productos se cargarán automáticamente desde CSV -->
-  </div>
-</section>
+<div class="slider-container">
+  <button class="slider-btn" id="prev">&#10094;</button>
+  <div id="productosDestacados"></div>
+  <button class="slider-btn" id="next">&#10095;</button>
+</div>
 
-<!-- SECCIÓN CONTACTO -->
-<section id="contacto">
-  <h2>Contacto</h2>
-  <p>📍 Medellín</p>
-  <p>📞 WhatsApp: 319 641 6617</p>
-</section>
+<!-- Carrito -->
+<div id="carrito">
+  <h3>Carrito</h3>
+  <ul id="listaCarrito"></ul>
+  <p>Total: $<span id="totalCarrito">0</span></p>
+  <div id="paypal-button-container"></div>
+</div>
 
-<!-- BOTÓN WHATSAPP FLOTANTE -->
-<a href="https://wa.me/573196416617" 
-   class="whatsapp" 
-   target="_blank"
-   title="Comprar por WhatsApp">
-  💬
-</a>
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/573001234567" target="_blank" class="whatsapp-float">&#128241;</a>
 
-<!-- SCRIPT PARA CARGAR PRODUCTOS DESDE CSV -->
+<!-- PayPal SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_SANDBOX_CLIENT_ID&currency=USD"></script>
+
 <script>
-async function cargarProductos() {
-  const response = await fetch('productos.csv');
-  const data = await response.text();
+// Productos
+const productos=[
+  {nombre:"Moto X", precio:5000000, imagen:"moto.jpg"},
+  {nombre:"Casco Pro", precio:200000, imagen:"casco.jpg"},
+  {nombre:"Guantes Racing", precio:50000, imagen:"guantes.jpg"},
+  {nombre:"Chaqueta Motera", precio:350000, imagen:"chaqueta.jpg"},
+  {nombre:"Botas Racing", precio:150000, imagen:"botas.jpg"}
+];
 
-  const rows = data.split('\n').slice(1); // quitar encabezado
-  const grid = document.getElementById('productos-grid');
+// Render slider
+const contenedor=document.getElementById("productosDestacados");
+productos.forEach((p,i)=>{
+  contenedor.innerHTML+=`
+  <div class="producto">
+    <img src="${p.imagen}" alt="${p.nombre}">
+    <h3>${p.nombre}</h3>
+    <p>$${p.precio.toLocaleString()}</p>
+    <button onclick="agregarCarrito(${i})">Agregar al carrito</button>
+    <button onclick="comprarWhatsApp('${p.nombre}',$${p.precio})">Comprar WhatsApp</button>
+  </div>`;
+});
 
-  rows.forEach(row => {
-    if(row.trim() === '') return; // ignorar líneas vacías
-    const [codigo, producto, precio, imagen] = row.split(',');
+// Carrito
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+const listaCarrito=document.getElementById("listaCarrito");
+const totalCarrito=document.getElementById("totalCarrito");
 
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <img src="${imagen}" alt="${producto}">
-      <h3>${producto}</h3>
-      <p class="precio">$${precio}</p>
-      <a href="https://wa.me/573196416617?text=Hola,%20quiero%20el%20${encodeURIComponent(producto)}"
-         target="_blank"
-         class="btn-producto">
-         Comprar
-      </a>
-    `;
-    grid.appendChild(card);
+function renderCarrito(){
+  listaCarrito.innerHTML="";
+  let total=0;
+  carrito.forEach((item,i)=>{
+    total+=item.precio*item.cantidad;
+    listaCarrito.innerHTML+=`
+    <li>
+      ${item.nombre} - $${(item.precio*item.cantidad).toLocaleString()} 
+      <input type="number" min="1" value="${item.cantidad}" onchange="cambiarCantidad(${i},this.value)">
+      <button onclick="quitarCarrito(${i})">X</button>
+    </li>`;
   });
+  totalCarrito.innerText=total.toLocaleString();
+  localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
-cargarProductos();
+function agregarCarrito(idx){
+  const prod=productos[idx];
+  const encontrado=carrito.find(p=>p.nombre===prod.nombre);
+  if(encontrado) encontrado.cantidad++;
+  else carrito.push({...prod,cantidad:1});
+  renderCarrito();
+}
+
+function quitarCarrito(i){ carrito.splice(i,1); renderCarrito(); }
+
+function cambiarCantidad(i,cantidad){
+  carrito[i].cantidad=parseInt(cantidad) || 1;
+  renderCarrito();
+}
+
+// WhatsApp
+function comprarWhatsApp(nombre,precio){
+  const numero="573001234567";
+  const mensaje=encodeURIComponent(Hola, quiero comprar: ${nombre} por $${precio});
+  window.open(https://wa.me/${numero}?text=${mensaje},"_blank");
+}
+
+// Slider automatico
+const slider=document.getElementById("productosDestacados");
+const nextBtn=document.getElementById("next");
+const prevBtn=document.getElementById("prev");
+const step=240;
+
+nextBtn.addEventListener("click", ()=>{ slider.scrollBy({left:step,behavior:'smooth'}); });
+prevBtn.addEventListener("click", ()=>{ slider.scrollBy({left:-step,behavior:'smooth'}); });
+
+setInterval(()=>{
+  if(slider.scrollLeft+slider.clientWidth>=slider.scrollWidth) slider.scrollTo({left:0,behavior:'smooth'});
+  else slider.scrollBy({left:step,behavior:'smooth'});
+},4000);
+
+// PayPal Buttons
+paypal.Buttons({
+  createOrder: function(data, actions){
+    const totalUSD = carrito.reduce((sum,p)=>sum+p.precio*p.cantidad,0)/5000;
+    return actions.order.create({
+      purchase_units:[{ amount:{ currency_code:"USD", value: totalUSD.toFixed(2) } }]
+    });
+  },
+  onApprove: function(data, actions){
+    return actions.order.capture().then(function(details){
+      alert('Pago completado: '+details.payer.name.given_name);
+      carrito=[]; renderCarrito();
+    });
+  }
+}).render('#paypal-button-container');
+
+renderCarrito();
 </script>
 
 </body>
 </html>
+
 
 
 
