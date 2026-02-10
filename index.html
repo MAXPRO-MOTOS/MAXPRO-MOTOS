@@ -52,11 +52,46 @@ body{
   box-shadow: 0 0 15px rgba(37,211,102,0.8);
   z-index: 1000;
 }
-</style>
+</style>.menu{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  z-index: 2000;
+}
+
+.menu .logo{
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.menu .links a{
+  color: #ffd700;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu .links a:hover{
+  color: #ff0000;
+}
 </head>
 
 <body>
-
+<nav class="menu">
+  <div class="logo">MAXPRO MOTOS</div>
+  <div class="links">
+    <a href="#amortiguadores">Amortiguadores</a>
+    <a href="#cascos">Cascos</a>
+    <a href="#lubricantes">Lubricantes</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
 <div class="hero">
   <div>
     <h1>MAXPRO MOTOS</h1>
@@ -71,6 +106,7 @@ body{
 </a>
 </body>
 </html>
+
 
 
 
