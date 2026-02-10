@@ -150,9 +150,7 @@ section{
 <nav class="menu">
   <div class="logo">MAXPRO MOTOS</div>
   <div class="links">
-    <a href="#amortiguadores">Amortiguadores</a>
-    <a href="#cascos">Cascos</a>
-    <a href="#lubricantes">Lubricantes</a>
+    <a href="#productos">Productos</a>
     <a href="#contacto">Contacto</a>
   </div>
 </nav>
@@ -166,20 +164,11 @@ section{
   </div>
 </section>
 
-<!-- SECCIÓN PRODUCTOS -->
-<section id="amortiguadores" class="productos">
+<!-- SECCIÓN PRODUCTOS (cargados desde CSV) -->
+<section id="productos" class="productos">
   <h2>Productos Destacados</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="Amortiguadores1.jpg" alt="Amortiguador Pro">
-      <h3>Amortiguador Pro</h3>
-      <p class="precio">$350.000</p>
-      <a href="https://wa.me/573196416617?text=Hola,%20quiero%20el%20Amortiguador%20Pro"
-         target="_blank"
-         class="btn-producto">
-         Comprar
-      </a>
-    </div>
+  <div class="grid" id="productos-grid">
+    <!-- Aquí se cargarán los productos desde CSV -->
   </div>
 </section>
 
@@ -198,8 +187,41 @@ section{
   💬
 </a>
 
+<!-- --- SCRIPT PARA CARGAR PRODUCTOS DESDE CSV --- -->
+<script>
+async function cargarProductos() {
+  const response = await fetch('productos.csv');
+  const data = await response.text();
+
+  const rows = data.split('\n').slice(1); // quitar encabezado
+  const grid = document.getElementById('productos-grid');
+
+  rows.forEach(row => {
+    if(row.trim() === '') return; // evitar líneas vacías
+    const [codigo, producto, precio, imagen] = row.split(',');
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="${imagen}" alt="${producto}">
+      <h3>${producto}</h3>
+      <p class="precio">$${precio}</p>
+      <a href="https://wa.me/573196416617?text=Hola,%20quiero%20el%20${encodeURIComponent(producto)}"
+         target="_blank"
+         class="btn-producto">
+         Comprar
+      </a>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+cargarProductos();
+</script>
+
 </body>
 </html>
+
 
 
 
