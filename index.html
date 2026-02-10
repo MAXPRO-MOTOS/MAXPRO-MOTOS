@@ -32,7 +32,7 @@
   color: #ff0000;
 }
 
-/* --- HERO --- */
+/* --- HERO METÁLICO --- */
 .hero {
   height: 90vh;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
@@ -45,9 +45,13 @@
   text-align: center;
 }
 .hero h1 {
-  color: #ff0000;
   font-size: 48px;
   margin: 0 0 10px;
+  background: linear-gradient(135deg, #ff0000, #ffd700, #ff0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 .hero p {
   color: #ffd700;
@@ -55,22 +59,34 @@
   margin: 0 0 20px;
 }
 .btn-whatsapp {
-  background: linear-gradient(45deg,#ff0000,#ffd700);
+  display: inline-block;
+  background: linear-gradient(135deg,#ff0000,#ffd700,#ff0000);
   color: #000;
   padding: 12px 25px;
   border-radius: 25px;
   font-weight: bold;
   text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-whatsapp:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
 }
 
-/* --- PRODUCTOS --- */
+/* --- PRODUCTOS METÁLICOS --- */
 .productos{
-  padding: 120px 20px 40px 20px; /* espacio por menú fijo */
+  padding: 120px 20px 40px 20px;
   text-align:center;
 }
 .productos h2{
-  color:#ff0000;
-  margin-bottom:30px;
+  background: linear-gradient(135deg, #ff0000, #ffd700, #ff0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 36px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 .grid{
   display:grid;
@@ -80,13 +96,15 @@
   margin:auto;
 }
 .card{
-  background:#111;
+  background: linear-gradient(145deg,#111,#222);
   border-radius:15px;
   padding:15px;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 .card:hover{
   transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.8);
 }
 .card img{
   width:100%;
@@ -100,12 +118,18 @@
 .btn-producto{
   display:block;
   margin-top:10px;
-  background: linear-gradient(45deg,#ff0000,#ffd700);
+  background: linear-gradient(135deg,#ff0000,#ffd700,#ff0000);
   color:#000;
   padding:10px;
   border-radius:25px;
   text-decoration:none;
   font-weight:bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-producto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
 }
 
 /* --- CONTACTO --- */
@@ -164,11 +188,11 @@ section{
   </div>
 </section>
 
-<!-- SECCIÓN PRODUCTOS (cargados desde CSV) -->
+<!-- SECCIÓN PRODUCTOS (desde CSV) -->
 <section id="productos" class="productos">
   <h2>Productos Destacados</h2>
   <div class="grid" id="productos-grid">
-    <!-- Aquí se cargarán los productos desde CSV -->
+    <!-- Productos se cargarán automáticamente desde CSV -->
   </div>
 </section>
 
@@ -187,7 +211,7 @@ section{
   💬
 </a>
 
-<!-- --- SCRIPT PARA CARGAR PRODUCTOS DESDE CSV --- -->
+<!-- SCRIPT PARA CARGAR PRODUCTOS DESDE CSV -->
 <script>
 async function cargarProductos() {
   const response = await fetch('productos.csv');
@@ -197,7 +221,7 @@ async function cargarProductos() {
   const grid = document.getElementById('productos-grid');
 
   rows.forEach(row => {
-    if(row.trim() === '') return; // evitar líneas vacías
+    if(row.trim() === '') return; // ignorar líneas vacías
     const [codigo, producto, precio, imagen] = row.split(',');
 
     const card = document.createElement('div');
@@ -221,6 +245,7 @@ cargarProductos();
 
 </body>
 </html>
+
 
 
 
